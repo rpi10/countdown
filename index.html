@@ -3,177 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Midnight Sail 🎂</title>
+<title>Birthday Video Test 🎬</title>
 <style>
-  body {
+  html, body {
     margin: 0;
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #0077b6, #023e8a);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    text-shadow: 0 0 25px rgba(255,255,255,0.6);
-  }
-
-  #countdown {
-    font-size: 2.5em;
-    letter-spacing: 3px;
-    text-shadow: 0 0 15px rgba(0, 200, 255, 0.8);
-  }
-
-  footer {
-    position: absolute;
-    bottom: 20px;
-    font-size: 1em;
-    opacity: 0.8;
-  }
-
-  /* Animated ocean waves */
-  .ocean {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200%;
-    height: 15%;
-    background: rgba(255,255,255,0.3);
-    border-radius: 100%;
-    animation: wave 6s infinite linear;
-    opacity: 0.6;
-  }
-
-  .ocean::after {
-    content: '';
-    position: absolute;
-    width: 200%;
     height: 100%;
-    background: rgba(255,255,255,0.2);
-    border-radius: 100%;
-    animation: wave 8s infinite linear reverse;
-  }
-
-  @keyframes wave {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* Sailing boat silhouette */
-  .boat {
-    position: absolute;
-    bottom: 10%;
-    width: 120px;
-    height: 120px;
-    background: transparent;
-    animation: float 4s ease-in-out infinite;
-  }
-
-  .sail {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 40px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 80px solid white;
-  }
-
-  .hull {
-    position: absolute;
-    bottom: 0;
-    left: 10px;
-    width: 100px;
-    height: 20px;
-    background: white;
-    border-radius: 0 0 50% 50%;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  #videoContainer {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
     background: black;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
 
   video {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
   }
 </style>
 </head>
 <body>
-  <h1>⛵ Sailing into Midnight 💙</h1>
-  <div id="countdown"></div>
-
-  <div class="boat">
-    <div class="sail"></div>
-    <div class="hull"></div>
-  </div>
-
-  <div class="ocean"></div>
-
-  <footer>Made with love and sea breeze for you 💙</footer>
-
-  <div id="videoContainer">
-    <video id="birthdayVideo" controls autoplay>
-      <source src="video.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-  </div>
-
-<script>
-  const countdown = document.getElementById("countdown");
-  const videoContainer = document.getElementById("videoContainer");
-  const video = document.getElementById("birthdayVideo");
-
-  // Target date: October 25 at 00:00
-  const target = new Date();
-  target.setMonth(9); // October (0-indexed)
-  target.setDate(25);
-  target.setHours(0, 0, 0, 0);
-
-  function updateCountdown() {
-    const now = new Date();
-    const diff = target - now;
-
-    if (diff <= 0) {
-      document.body.innerHTML = "";
-      videoContainer.style.display = "flex";
-      document.body.appendChild(videoContainer);
-      video.play();
-      clearInterval(timer);
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  }
-
-  const timer = setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
+  <video autoplay controls>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
 </body>
 </html>
